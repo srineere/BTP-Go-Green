@@ -1,6 +1,6 @@
 const Student = require('../models/Student')
 
-const get_all_students = (req,res) => {
+const getAllStudents = (req,res) => {
     Student.find().sort()
     .then(result => {
         res.send(result)
@@ -8,7 +8,7 @@ const get_all_students = (req,res) => {
     .catch(e => console.log(e))
 }
 
-const get_one_student = (req,res) => {
+const getOneStudent = (req,res) => {
     const id = req.params.id;
     Student.findById(id)
     .then(result => {
@@ -18,13 +18,21 @@ const get_one_student = (req,res) => {
 
 }
 
-const add_student = (req,res) => {
+const addStudent = (req,res) => {
     Student.create(req.body,function (err, small) {
         if (err) return handleError(err);
     })
 }
 
-const delete_student = (req,res) => {
+const editStudent = (req,res) => {
+    Student.findByIdAndUpdate(req.params.id, req.body)
+    .then(result => {
+        res.json(result)
+    .catch(e => console.log(e))
+    })
+}
+
+const deleteStudent = (req,res) => {
     Student.findByIdAndDelete(req.params.id)
     .then(result => {
         res.json(result)
@@ -33,8 +41,9 @@ const delete_student = (req,res) => {
 }
 
 module.exports = { 
-    get_all_students,
-    get_one_student,
-    add_student,
-    delete_student
+    getAllStudents,
+    getOneStudent,
+    addStudent,
+    editStudent,
+    deleteStudent
 }
