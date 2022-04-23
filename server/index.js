@@ -30,6 +30,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Routes
 app.use('/api/student',Student_Routes)
+app.use('/api/fee',Fee_Routes)
 
 app.get('/', (req,res)=> {
     res.send("Hello") 
