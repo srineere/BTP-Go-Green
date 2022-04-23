@@ -39,6 +39,6 @@ app.use('/api/courses',Course_Routes)
 app.use('/api/hostel',Hostel_Routes)
 
 app.get('/', (req,res)=> {
-    res.send("Hello") 
+    res.send("Server is Running") 
 })
 

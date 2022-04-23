@@ -1,4 +1,4 @@
-const Course = require('../models/Course')
+const Course = require('../models/Courses')
 
 const getAllCourses = (req,res) => {
     Course.find().sort()
