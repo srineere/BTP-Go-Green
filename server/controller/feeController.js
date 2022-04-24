@@ -20,7 +20,11 @@ const getFeeDetail = (req,res) => {
 
 const addFeeDetails = (req,res) => {
     Fees.create(req.body,function (err, small) {
-        if (err) return handleError(err);
+        if(err){
+            console.log(err)
+            res.send(err)
+        } 
+        else res.json(result)
     })
 }
 
@@ -28,16 +32,16 @@ const editStudent = (req,res) => {
     Student.findByIdAndUpdate(req.params.id, req.body)
     .then(result => {
         res.json(result)
-    .catch(e => console.log(e))
     })
+    .catch(e => console.log(e))
 }
 
 const deleteFeeDetails = (req,res) => {
     Fees.findByIdAndDelete(req.params.id)
     .then(result => {
         res.json(result)
-    .catch(e => console.log(e))
     })
+    .catch(e => console.log(e))
 }
 
 module.exports = { 

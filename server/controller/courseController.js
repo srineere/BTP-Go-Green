@@ -20,7 +20,11 @@ const getOneCourse = (req,res) => {
 
 const addCourse = (req,res) => {
     Course.create(req.body,function (err, small) {
-        if (err) return handleError(err);
+        if(err){
+            console.log(err)
+            res.send(err)
+        } 
+        else res.json(result)
     })
 }
 
@@ -28,16 +32,16 @@ const editCourse = (req,res) => {
     Course.findByIdAndUpdate(req.params.id, req.body)
     .then(result => {
         res.json(result)
-    .catch(e => console.log(e))
     })
+    .catch(e => console.log(e))
 }
 
 const deleteCourse = (req,res) => {
     Course.findByIdAndDelete(req.params.id)
     .then(result => {
         res.json(result)
-    .catch(e => console.log(e))
     })
+    .catch(e => console.log(e))
 }
 
 module.exports = { 

@@ -20,7 +20,11 @@ const getOneStudentHostel = (req,res) => {
 
 const addStudentHostel = (req,res) => {
     Hostel.create(req.body,function (err, small) {
-        if (err) return handleError(err);
+        if(err){
+            console.log(err)
+            res.send(err)
+        } 
+        else res.json(result)
     })
 }
 
@@ -28,16 +32,16 @@ const editStudentHostel = (req,res) => {
     Hostel.findByIdAndUpdate(req.params.id, req.body)
     .then(result => {
         res.json(result)
-    .catch(e => console.log(e))
     })
+    .catch(e => console.log(e))
 }
 
 const deleteStudentHostel = (req,res) => {
     Hostel.findByIdAndDelete(req.params.id)
     .then(result => {
         res.json(result)
-    .catch(e => console.log(e))
     })
+    .catch(e => console.log(e))
 }
 
 module.exports = { 
