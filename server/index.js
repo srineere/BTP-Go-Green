@@ -8,7 +8,8 @@ const Student_Routes = require('./routes/studentRoutes');
 const Course_Routes = require('./routes/courseRoutes');
 const Fee_Routes = require('./routes/feeRoutes');
 const Hostel_Routes = require('./routes/HostelRoutes')
-const Hostel = require('./models/Hostel');
+const User_Routes = require('./routes/userRoutes')
+const Auth_Routes = require('./routes/authRoutes')
 
 // Configuring the env file
 dotenv.config();
@@ -37,6 +38,8 @@ app.use('/api/student',Student_Routes)
 app.use('/api/fee',Fee_Routes)
 app.use('/api/courses',Course_Routes)
 app.use('/api/hostel',Hostel_Routes)
+app.use('/api/user',User_Routes)
+app.use('/api/auth',Auth_Routes)
 
 app.get('/', (req,res)=> {
     res.send("Server is Running") 

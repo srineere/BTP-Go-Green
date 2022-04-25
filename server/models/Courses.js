@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Faculty = require('./Faculty')
 
 const CoursesSchema = new mongoose.Schema({
     Course_Name :{
@@ -13,16 +14,9 @@ const CoursesSchema = new mongoose.Schema({
     },
     Faculty: [
         {
-            name:{
-                type: String,
-                required: true,
-                trim: true
-            },
-            email:{
-                type: String,
-                required: true,
-                unique: true,
-                trim: true
+            faculty: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref:Faculty
             }
         }
     ],
