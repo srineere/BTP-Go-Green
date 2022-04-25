@@ -2,7 +2,7 @@ const LeaveFaculty = require("../models/LeaveFaculty")
 //post
 
 const addLeaveFaculty = (req,res) => {
-    LeaveFaculty.create(req.body,function (err, small) {
+    LeaveFaculty.create(req.body,function (err) {
         if(err){
             console.log(err)
             res.send(err)
