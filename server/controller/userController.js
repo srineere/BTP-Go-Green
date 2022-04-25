@@ -53,7 +53,14 @@ const registerUser = async (req, res) => {
     }
 
 }
-
+const getAllUsers = (req,res) => {
+  User.find().sort()
+  .then(result => {
+      res.send(result)
+  })
+  .catch(e => console.log(e))
+}
 module.exports = {
-    registerUser
+    registerUser,
+    getAllUsers
 };

@@ -16,5 +16,5 @@ router.post(
   ],
     UserRoutes.registerUser
 );
-
+router.get('/', UserRoutes.getAllUsers);
 module.exports = router;
