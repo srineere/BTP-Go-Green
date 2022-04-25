@@ -11,6 +11,7 @@ const Hostel_Routes = require('./routes/HostelRoutes')
 const User_Routes = require('./routes/userRoutes')
 const Auth_Routes = require('./routes/authRoutes')
 const LeaveFaculty_Routes = require('./routes/leaveFacultyRoutes')
+const LeaveStudent = require('./routes/leaveStudentRoutes')
 
 // Configuring the env file
 dotenv.config();
@@ -42,6 +43,7 @@ app.use('/api/hostel',Hostel_Routes)
 app.use('/api/user',User_Routes)
 app.use('/api/auth',Auth_Routes)
 app.use('/api/leaveFaculty',LeaveFaculty_Routes)
+app.use('/api/leaveStudent',LeaveStudent)
 
 app.get('/', (req,res)=> {
     res.send("Server is Running") 
